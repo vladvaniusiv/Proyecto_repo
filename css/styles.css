@@ -23,6 +23,10 @@
       background-attachment: fixed;
     }
 }
+
+  .card{
+    z-index: -1;
+  }
   
   .card img {
     transition: transform 0.3s ease-in-out;
@@ -101,6 +105,7 @@
   opacity: 0;
   white-space: nowrap;
   transition: opacity 0.3s ease, transform 0.3s ease;
+
 }
 
 #dot-nav .dot-link:hover::after {
