@@ -1,3 +1,11 @@
+/*FUENTE*/
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Bubbles&display=swap');
+a.navbar-brand, h1,h2,h3,h5{
+    font-family: "Rubik Bubbles", system-ui;
+    font-weight: 400;
+    font-style: normal;
+}
+
 .hero {
     height: 100vh;
     background: url('../img/hero-bg.jpg') no-repeat center center/cover;
