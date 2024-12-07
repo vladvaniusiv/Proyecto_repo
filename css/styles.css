@@ -22,6 +22,13 @@ a.navbar-brand, h1,h2,h3,h5{
   text-shadow: 1px 1px 2px #000, -1px -1px 2px #000;
 }
 
+@media (min-width: 768px) and (max-width: 1024px) {
+  .row.g-4 .col-md-4 {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+}
+
 
 @media (max-width: 768px) {
     .parallax {
@@ -54,7 +61,7 @@ a.navbar-brand, h1,h2,h3,h5{
   }
 
 
-@media (min-width: 768px) {
+@media (min-width: 1025px) {
   .navbar{
     position: relative;
   }
@@ -120,7 +127,7 @@ a.navbar-brand, h1,h2,h3,h5{
   transform: translateY(-50%) translateX(-10px);
 }
 
-@media (max-width: 767px) {
+@media (max-width: 1025px) {
   #dot-nav {
       display:none;
   }
