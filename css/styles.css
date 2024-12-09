@@ -7,10 +7,19 @@ a.navbar-brand, h1,h2,h3,h5{
 }
 
 body{
-  background-color: #E7F5F3;
+  background-color: #CDEAE6;
 }
 
-.hero {
+.btn{
+  background-color: #47A99B;
+  border: #47A99B;
+}
+
+.btn:hover{
+  background-color: #A99B47;
+}
+
+.cabecera {
     height: 100vh;
     background: url('../img/hero-bg.jpg') no-repeat center center/cover;
   }
@@ -22,7 +31,7 @@ body{
     text-shadow: 1px 1px 2px #000, -1px -1px 2px #000;
 }
 
-.hero-content h1, .hero-content p{
+.cabecera-content h1, .cabecera-content p{
   text-shadow: 1px 1px 2px #000, -1px -1px 2px #000;
 }
 
@@ -43,7 +52,7 @@ body{
 }
 
   .card{
-    background-color: #F5F3E7;
+    background-color: #EAE6CD;
   }
   
   .card img {
@@ -56,7 +65,7 @@ body{
 
   /*navbar*/
   .navbar{
-    background-color: #E7F5F3;
+    background-color: #CDEAE6;
   }
   .navbar-brand, .nav-link {
     font-family: 'Poppins', sans-serif;
@@ -129,7 +138,7 @@ body{
 }
 
 #dot-nav .dot-link:hover {
-  background-color: #396C89;
+  background-color: #2B5268;
   transform: scale(1.2);
 }
 
@@ -142,7 +151,7 @@ body{
   transform: translateY(-50%);
   background-color: rgba(255, 255, 255, 0);
   text-shadow: 1px 1px 2px #fff, -1px -1px 2px #fff;
-  color: #396C89;
+  color: #2B5268;
   padding: 5px 10px;
   font-size: 14px;
   border-radius: 5px;
