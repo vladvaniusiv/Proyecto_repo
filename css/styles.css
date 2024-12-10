@@ -19,6 +19,10 @@ body{
   background-color: #A99B47;
 }
 
+.btn:active{
+  background-color: #928435;
+}
+
 .cabecera {
     height: 100vh;
     background: url('../img/hero-bg.jpg') no-repeat center center/cover;
@@ -33,6 +37,49 @@ body{
 
 .cabecera-content h1, .cabecera-content p{
   text-shadow: 1px 1px 2px #000, -1px -1px 2px #000;
+}
+
+/*About us*/
+/*Carousel*/
+/*
+#carouselExampleDark .carousel-inner {
+  height: 100%;
+}
+
+#carouselExampleDark .carousel-item img {
+  max-height: 400px;
+    width: auto; 
+    object-fit: contain;
+}
+*/
+
+
+.custom-container {
+  max-width: 50%; /* Contenedor de ancho reducido por defecto */
+}
+
+.carousel-caption {
+  bottom: 20px; /* Ajusta la posición del texto */
+  background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente para mejor visibilidad */
+  padding: 5px;
+  border-radius: 10px;
+}
+
+@media (max-width: 768px) {
+  .carousel-caption h5 {
+    font-size: 16px; /* Reduce el tamaño del texto en pantallas pequeñas */
+  }
+  .carousel-caption {
+    bottom: 20px; /* Ajusta la posición del texto en pantallas más pequeñas */
+    padding: 5px; /* Reduce el padding */
+  }
+}
+
+@media (max-width: 1024px) {
+  .custom-container {
+    max-width: 100%; /* Ocupa el 100% del ancho en pantallas pequeñas */
+    padding: 0; /* Elimina el padding lateral */
+  }
 }
 
 @media (min-width: 768px) and (max-width: 1024px) {
