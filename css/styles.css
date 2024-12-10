@@ -20,7 +20,7 @@ body{
 }
 
 .btn:active{
-  background-color: #928435;
+  background-color: #81752e !important;
 }
 
 .cabecera {
