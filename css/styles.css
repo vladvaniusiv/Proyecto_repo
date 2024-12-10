@@ -16,11 +16,11 @@ body{
 }
 
 .btn:hover{
-  background-color: #A99B47;
+  background-color: #E2B450;
 }
 
 .btn:active{
-  background-color: #81752e !important;
+  background-color: #c29a45 !important;
 }
 
 .cabecera {
@@ -99,7 +99,7 @@ body{
 }
 
   .card{
-    background-color: #D8D0A1;
+    background-color: #E2B450;
     border-radius: 20px;
     box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;  
   }
@@ -149,7 +149,7 @@ body{
 }
   
   .nav-link:hover {
-    color: #C2B56B;
+    color: #E2B450;
   }
 
 
@@ -184,7 +184,7 @@ body{
   display: block;
   width: 20px;
   height: 20px;
-  background-color: #C2B66C;
+  background-color: #E2B450;
   border-radius: 50%;
   position: relative;
   transition: background-color 0.5s ease, transform 0.5s ease;
@@ -192,7 +192,7 @@ body{
 }
 
 #dot-nav .dot-link:hover {
-  background-color: #2B5268;
+  background-color: #47AA9C;
   transform: scale(1.2);
 }
 
