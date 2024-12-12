@@ -119,27 +119,29 @@ body{
 
   /*navbar*/
   .navbar{
-    background-color: #CDEAE6;
+    background-color: #D29B23;
   }
   .navbar-brand, .nav-link {
     font-family: 'Poppins', sans-serif;
     transition: color 0.3s ease;
+    color: #fff;
   }
 
   .nav-link{
-
-    font-size: 2vh;
+    font-size: 2.4vh;
   }
 
   .navbar-brand{
-    font-size: 2.5vh;
+    font-size: 3.5vh;
   }
 
   .logo-img{
-    background-color: #000;
     border-radius: 50%;
   }
 
+  .navbar-brand:hover .logo-img {
+    content: url('../img/logoN.png');
+  }
 
   /*SUBRAYADO DE LINKS*/
   .nav-link {
@@ -162,8 +164,9 @@ body{
   width: 100%; /* Cambia el ancho para hacer visible el subrayado */
 }
   
+
   .nav-link:hover {
-    color: #E2B450;
+    color: #000;
   }
 
 
