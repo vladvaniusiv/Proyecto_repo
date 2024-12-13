@@ -16,7 +16,7 @@ body{
 }
 
 .btn:hover{
-  background-color: #E2B450;
+  background-color: #D29B23;
 }
 
 .btn:active{
@@ -102,6 +102,8 @@ body{
     background-color: #E2B450;
     border-radius: 20px;
     box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;  
+    overflow: hidden;
+    border: none;
   }
 
   .card:hover{
@@ -110,7 +112,7 @@ body{
   
   .card img {
     transition: transform 0.3s ease-in-out;
-    border-radius: 20px;
+    border-radius: 20px 20px 0 0;
   }
   
   .card:hover img {
@@ -146,7 +148,7 @@ body{
   /*SUBRAYADO DE LINKS*/
   .nav-link {
     position: relative;
-}
+  }
 
 .nav-link::before{
     content:"";
@@ -173,6 +175,18 @@ body{
 @media (min-width: 1025px) {
   .navbar{
     position: relative;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar-brand{
+    font-size: 2.8vh;
+  }
+}
+
+@media (max-width: 420px) {
+  .navbar-brand{
+    font-size: 2.5vh;
   }
 }
 
@@ -213,6 +227,10 @@ body{
   transform: scale(1.2);
 }
 
+.dot-link.active {
+  background-color: #47AA9C;
+}
+
 /* texto */
 #dot-nav .dot-link::after {
   content: attr(data-label);
@@ -240,4 +258,8 @@ body{
   #dot-nav {
       display:none;
   }
+}
+
+.accordion-button:not(.collapsed){
+  background-color: #E2B450;
 }
