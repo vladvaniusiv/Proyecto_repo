@@ -16,7 +16,7 @@ body{
 }
 
 .btn:hover{
-  background-color: #E2B450;
+  background-color: #D29B23;
 }
 
 .btn:active{
@@ -225,6 +225,10 @@ body{
   transform: scale(1.2);
 }
 
+.dot-link.active {
+  background-color: #47AA9C;
+}
+
 /* texto */
 #dot-nav .dot-link::after {
   content: attr(data-label);
@@ -253,3 +257,6 @@ body{
       display:none;
   }
 }
+
+
+/*form*/
