@@ -55,13 +55,13 @@
   </nav>
 
 <!--Form-->
-<div class="formulario container">
+<div class="formulario container mt-3">
 <form class="row g-3 needs-validation" novalidate>
   <h5>Información Personal</h5>
 
   <div class="col-md-6 form-floating">
     <input type="text" class="form-control" id="nombre" placeholder="Nombre" required>
-    <label for="nombre">Nombre</label>
+    <label for="nombre">Nombre <span class="text-danger" id="asterisco-nombre">*</span></label>
     <div class="invalid-feedback">
       Por favor ingresa tu nombre.
     </div>
@@ -70,14 +70,11 @@
   <div class="col-md-6 form-floating">
     <input type="text" class="form-control" id="apellidos" placeholder="Apellidos">
     <label for="apellidos">Apellidos</label>
-    <div class="invalid-feedback">
-      Por favor ingresa tus apellidos.
-    </div>
   </div>
 
   <div class="col-md-6 form-floating">
     <input type="email" class="form-control" id="email" placeholder="name@example.com" required>
-    <label for="email">Correo Electrónico</label>
+    <label for="email">Correo Electrónico <span class="text-danger" id="asterisco-email">*</span></label>
     <div class="invalid-feedback">
       Por favor ingresa un correo electrónico válido.
     </div>
@@ -85,7 +82,7 @@
 
   <div class="col-md-6 form-floating">
     <input type="number" class="form-control" id="telefono" placeholder="Teléfono">
-    <label for="telefono">Teléfono</label>
+    <label for="telefono">Teléfono <span class="text-danger" id="asterisco-telefono" style="display:none">*</span></label>
     <div class="invalid-feedback">
       Por favor ingresa un número de teléfono válido.
     </div>
@@ -96,19 +93,35 @@
     <label class="form-check-label" for="whatsappSwitch">Escríbeme por WhatsApp</label>
   </div>
 
+  <div class="col-md-6 form-floating">
+    <input type="text" class="form-control" id="pais" placeholder="Pais">
+    <label for="apellidos">Pais</label>
+  </div>
+
+  <div class="col-md-6">
+    <select class="form-select" id="idioma">
+      <option selected disabled value="">Idioma Preferido</option>
+      <option value="Espanol">Español</option>
+      <option value="Ingles">Inglés</option>
+      <option value="Ucraniano">Ucraniano</option>
+      <option value="Ruso">Ruso</option>
+    </select>
+  </div>
+
   <h5>Información Sobre Tu Mascota</h5>
 
   <div class="col-md-6 form-floating">
     <input type="text" class="form-control" id="nombreMascota" placeholder="Nombre de la Mascota" required>
-    <label for="nombreMascota">Nombre de la Mascota</label>
+    <label for="nombreMascota">Nombre de la Mascota <span class="text-danger" id="asterisco-nombreMascota">*</span></label>
     <div class="invalid-feedback">
       Por favor ingresa el nombre de tu mascota.
     </div>
   </div>
 
   <div class="col-md-6">
+    <label for="tipoMascota">Tipo de Mascota <span class="text-danger" id="asterisco-tipoMascota">*</span></label>
     <select class="form-select" id="tipoMascota" required>
-      <option selected disabled value="">Tipo de Mascota</option>
+      <option selected disabled value="">Selecciona el tipo de mascota</option>
       <option value="Perro">Perro</option>
       <option value="Gato">Gato</option>
       <option value="Otro">Otro</option>
@@ -132,10 +145,29 @@
     <button type="button" class="btn btn-secondary" id="addPetBtn">Añadir Otra Mascota</button>
   </div>
 
-  <div class="col-12">
+  <div class="col-12 mb-2">
     <button class="btn btn-primary" type="submit">Enviar</button>
+    <button class="btn btn-secondary" type="button" id="resetFormBtn">Limpiar</button>
   </div>
 </form>
+</div>
+
+<!-- Modal de confirmación -->
+<div class="modal fade" id="confirmationModal" tabindex="-1" aria-labelledby="confirmationModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="confirmationModalLabel">Formulario Enviado</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+      </div>
+      <div class="modal-body">
+        ¡Tu formulario ha sido enviado! En breve nos pondremos en contacto contigo.
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Aceptar</button>
+      </div>
+    </div>
+  </div>
 </div>
 
   <!-- Footer -->
@@ -175,6 +207,6 @@
 
   <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-  <script src="js/script.js"></script>
+  <script src="js/script_form.js"></script>
 </body>
 </html>

@@ -261,5 +261,6 @@ body{
 }
 
 .accordion-button:not(.collapsed){
-  background-color: #E2B450;
+  background-color: #D29B23;
+  color: #fff;
 }
