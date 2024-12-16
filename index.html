@@ -118,59 +118,97 @@
   <!-- Destinations Section -->
   <section id="destinations" class="py-5">
     <div class="container">
-      <h2 class="text-center mb-4">Destinos Destacados</h2>
+      <h2 class="text-center mb-4">Destinos</h2>
+      <div class="container text-center mb-4">
+        <div class="row g-3">
+          <div class="col-md-3">
+            <label for="filter-continent" class="form-label">Continente</label>
+            <select id="filter-continent" class="form-select">
+              <option value="all">Todos</option>
+              <option value="america">América</option>
+              <option value="europa">Europa</option>
+              <option value="asia">Asia</option>
+              <option value="africa">África</option>
+              <option value="oceania">Oceanía</option>
+            </select>
+          </div>
+          <div class="col-md-3">
+            <label for="filter-country" class="form-label">País</label>
+            <select id="filter-country" class="form-select" disabled>
+              <option value="all">Todos</option>
+            </select>
+          </div>
+          <div class="col-md-3">
+            <label for="filter-city" class="form-label">Ciudad</label>
+            <select id="filter-city" class="form-select" disabled>
+              <option value="all">Todos</option>
+            </select>
+          </div>
+          <div class="col-md-3">
+            <label for="filter-type" class="form-label">Categoría</label>
+            <select id="filter-type" class="form-select">
+              <option value="all">Todos</option>
+              <option value="playa">Playa</option>
+              <option value="hotel">Hotel</option>
+              <option value="restaurante">Restaurante</option>
+              <option value="restaurante">Cafetería</option>
+              <option value="restaurante">Centro Comercial</option>
+              <option value="restaurante">Museo</option>
+            </select>
+          </div>
+        </div>
+      </div>
       <div class="row g-4">
-        <div class="col-md-4 col-sm-">
+        <div class="col-md-4" data-continent="america" data-country="México" data-city="Cancun" data-type="playa">
           <div class="card">
             <img src="img/destination1.jpg" class="card-img-top" alt="Destino 1">
             <div class="card-body">
-              <h5 class="card-title">Playa Pet-Friendly</h5>
+              <h5 class="card-title">Playa Cancun</h5>
               <p class="card-text">Relájate junto al mar con tu compañero peludo en playas adaptadas para ellos.</p>
             </div>
           </div>
         </div>
-        <!-- Añadir más destinos -->
-        <div class="col-md-4">
+        <div class="col-md-4" data-continent="europa" data-country="España" data-city="Madrid" data-type="montaña">
           <div class="card">
             <img src="img/destination1.jpg" class="card-img-top" alt="Destino 1">
             <div class="card-body">
-              <h5 class="card-title">Playa Pet-Friendly</h5>
+              <h5 class="card-title">Montaña Madrid</h5>
               <p class="card-text">Relájate junto al mar con tu compañero peludo en playas adaptadas para ellos.</p>
             </div>
           </div>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-4" data-continent="asia" data-country="Japon" data-city="Tokio" data-type="playa">
           <div class="card">
             <img src="img/destination1.jpg" class="card-img-top" alt="Destino 1">
             <div class="card-body">
-              <h5 class="card-title">Playa Pet-Friendly</h5>
+              <h5 class="card-title">Playa Tokio</h5>
               <p class="card-text">Relájate junto al mar con tu compañero peludo en playas adaptadas para ellos.</p>
             </div>
           </div>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-4" data-continent="asia" data-country="China" data-city="Pekin" data-type="ciudad">
           <div class="card">
             <img src="img/destination1.jpg" class="card-img-top" alt="Destino 1">
             <div class="card-body">
-              <h5 class="card-title">Playa Pet-Friendly</h5>
+              <h5 class="card-title">Ciudad Pekin</h5>
               <p class="card-text">Relájate junto al mar con tu compañero peludo en playas adaptadas para ellos.</p>
             </div>
           </div>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-4" data-continent="america" data-country="EEUU" data-city="Miami" data-type="playa">
           <div class="card">
             <img src="img/destination1.jpg" class="card-img-top" alt="Destino 1">
             <div class="card-body">
-              <h5 class="card-title">Playa Pet-Friendly</h5>
+              <h5 class="card-title">Playa Miami</h5>
               <p class="card-text">Relájate junto al mar con tu compañero peludo en playas adaptadas para ellos.</p>
             </div>
           </div>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-4" data-continent="europa" data-country="Italia" data-city="Venecia" data-type="ciudad">
           <div class="card">
             <img src="img/destination1.jpg" class="card-img-top" alt="Destino 1">
             <div class="card-body">
-              <h5 class="card-title">Playa Pet-Friendly</h5>
+              <h5 class="card-title">Ciudad Venecia</h5>
               <p class="card-text">Relájate junto al mar con tu compañero peludo en playas adaptadas para ellos.</p>
             </div>
           </div>
@@ -180,6 +218,7 @@
     </div>
   </section>
 
+  <!-- Q&A -->
   <section id="q&a" class="py-5">
     <div class="container">
     <div class="accordion" id="accordionExample">
@@ -341,8 +380,8 @@
   </footer>
 
 
-  <!-- Bootstrap JS -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  <script src="js/script.js"></script>
 </body>
 </html>
