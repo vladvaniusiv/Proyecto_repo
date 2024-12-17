@@ -125,8 +125,8 @@
             <label for="filter-continent" class="form-label">Continente</label>
             <select id="filter-continent" class="form-select">
               <option value="all">Todos</option>
-              <option value="america">América</option>
               <option value="europa">Europa</option>
+              <option value="america">América</option>
               <option value="asia">Asia</option>
               <option value="africa">África</option>
               <option value="oceania">Oceanía</option>
@@ -151,69 +151,14 @@
               <option value="playa">Playa</option>
               <option value="hotel">Hotel</option>
               <option value="restaurante">Restaurante</option>
-              <option value="restaurante">Cafetería</option>
-              <option value="restaurante">Centro Comercial</option>
-              <option value="restaurante">Museo</option>
+              <option value="cafetería">Cafetería</option>
+              <option value="museo">Museo</option>
             </select>
           </div>
         </div>
       </div>
-      <div class="row g-4">
-        <div class="col-md-4" data-continent="america" data-country="México" data-city="Cancun" data-type="playa">
-          <div class="card">
-            <img src="img/destination1.jpg" class="card-img-top" alt="Destino 1">
-            <div class="card-body">
-              <h5 class="card-title">Playa Cancun</h5>
-              <p class="card-text">Relájate junto al mar con tu compañero peludo en playas adaptadas para ellos.</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4" data-continent="europa" data-country="España" data-city="Madrid" data-type="montaña">
-          <div class="card">
-            <img src="img/destination1.jpg" class="card-img-top" alt="Destino 1">
-            <div class="card-body">
-              <h5 class="card-title">Montaña Madrid</h5>
-              <p class="card-text">Relájate junto al mar con tu compañero peludo en playas adaptadas para ellos.</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4" data-continent="asia" data-country="Japon" data-city="Tokio" data-type="playa">
-          <div class="card">
-            <img src="img/destination1.jpg" class="card-img-top" alt="Destino 1">
-            <div class="card-body">
-              <h5 class="card-title">Playa Tokio</h5>
-              <p class="card-text">Relájate junto al mar con tu compañero peludo en playas adaptadas para ellos.</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4" data-continent="asia" data-country="China" data-city="Pekin" data-type="ciudad">
-          <div class="card">
-            <img src="img/destination1.jpg" class="card-img-top" alt="Destino 1">
-            <div class="card-body">
-              <h5 class="card-title">Ciudad Pekin</h5>
-              <p class="card-text">Relájate junto al mar con tu compañero peludo en playas adaptadas para ellos.</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4" data-continent="america" data-country="EEUU" data-city="Miami" data-type="playa">
-          <div class="card">
-            <img src="img/destination1.jpg" class="card-img-top" alt="Destino 1">
-            <div class="card-body">
-              <h5 class="card-title">Playa Miami</h5>
-              <p class="card-text">Relájate junto al mar con tu compañero peludo en playas adaptadas para ellos.</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4" data-continent="europa" data-country="Italia" data-city="Venecia" data-type="ciudad">
-          <div class="card">
-            <img src="img/destination1.jpg" class="card-img-top" alt="Destino 1">
-            <div class="card-body">
-              <h5 class="card-title">Ciudad Venecia</h5>
-              <p class="card-text">Relájate junto al mar con tu compañero peludo en playas adaptadas para ellos.</p>
-            </div>
-          </div>
-        </div>
-
+      <div id="cards-container" class="row g-4">
+        <!-- Las tarjetas se generarán aquí -->
       </div>
     </div>
   </section>

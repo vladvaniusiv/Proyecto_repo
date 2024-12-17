@@ -149,39 +149,32 @@ document.addEventListener("DOMContentLoaded", function () {
   const filterCountry = document.getElementById('filter-country');
   const filterCity = document.getElementById('filter-city');
   const filterType = document.getElementById('filter-type');
-  const cards = document.querySelectorAll('[data-continent]');
+  let cards; // Declarar cards globalmente
 
   // Datos jerárquicos: continentes, países y ciudades
   const data = {
-    america: {
-      México: ["Cancún", "Ciudad de México", "Guadalajara", "Monterrey", "Puebla"],
-      'Estados Unidos': ["Miami", "Nueva York", "San Francisco", "Austin", "Denver"],
-      Argentina: ["Buenos Aires", "Mendoza", "Córdoba", "Bariloche", "Rosario"],
-      Venezuela: ["Caracas", "Mérida", "Valencia", "Isla de Margarita", "Los Roques"]
-    },
     europa: {
-      España: ["Barcelona", "Madrid", "Sevilla", "Valencia", "Málaga"],
-      Francia: ["París", "Lyon", "Marsella", "Burdeos", "Niza"],
-      Italia: ["Roma", "Venecia", "Milán", "Florencia", "Bolonia"],
-      Alemania: ["Berlín", "Múnich", "Hamburgo", "Fráncfort", "Colonia"]
+      España: ["Valencia", "Barcelona", "Madrid"],
+      Francia: ["París", "Marsella"],
+      Italia: ["Roma", "Venecia", "Milán"],
+      Alemania: ["Berlín", "Múnich"]
+    },
+    america: {
+      Venezuela: ["Valencia", "Caracas", "Mérida"],
+      México: ["Ciudad de México", "Cancún"],
+      'Estados Unidos': ["Miami", "Nueva York", "San Francisco"]
     },
     asia: {
-      Japon: ["Tokio", "Osaka", "Kyoto", "Yokohama", "Sapporo"],
-      Tailandia: ["Bangkok", "Chiang Mai", "Phuket", "Krabi", "Pattaya"],
-      China: ["Pekín", "Shanghái", "Guangzhou", "Shenzhen", "Xi’an"],
-      India: ["Nueva Delhi", "Mumbai", "Bangalore", "Jaipur", "Goa"]
+      Japon: ["Tokio", "Osaka", "Kyoto"],
+      Tailandia: ["Bangkok", "Phuket"]
     },
     africa: {
-      Sudáfrica: ["Ciudad del Cabo", "Johannesburgo", "Durban", "Pretoria", "Stellenbosch"],
-      Egipto: ["El Cairo", "Alejandría", "Luxor", "Sharm el-Sheikh", "Hurghada"],
-      Marruecos: ["Marrakech", "Casablanca", "Fez", "Rabat", "Agadir"],
-      Kenia: ["Nairobi", "Mombasa", "Malindi", "Lamu", "Naivasha"]
+      Egipto: ["El Cairo", "Alejandría"],
+      Marruecos: ["Marrakech", "Casablanca"]
     },
     oceania: {
-      Australia: ["Sídney", "Melbourne", "Brisbane", "Perth", "Adelaida"],
-      'Nueva Zelanda': ["Auckland", "Wellington", "Christchurch", "Queenstown", "Dunedin"],
-      Fiyi: ["Suva", "Nadi", "Lautoka", "Labasa", "Savusavu"],
-      'Papua Nueva Guinea': ["Port Moresby", "Lae", "Madang", "Goroka", "Rabaul"]
+      Australia: ["Sídney", "Melbourne"],
+      'Nueva Zelanda': ["Auckland", "Wellington"]
     }
   };
 
@@ -189,11 +182,9 @@ document.addEventListener("DOMContentLoaded", function () {
   function updateOptions(selectElement, options, includeAll = true) {
     selectElement.innerHTML = "";
     if (includeAll) selectElement.innerHTML += `<option value="all">Todos</option>`;
-  
     options.forEach(option => {
       selectElement.innerHTML += `<option value="${option}">${option}</option>`;
     });
-  
     selectElement.disabled = options.length === 0;
   }
 
@@ -207,6 +198,7 @@ document.addEventListener("DOMContentLoaded", function () {
       updateOptions(filterCountry, countries);
       updateOptions(filterCity, []);
     }
+    filterCards();
   }
 
   function updateCities() {
@@ -218,6 +210,7 @@ document.addEventListener("DOMContentLoaded", function () {
       const cities = data[continent][country];
       updateOptions(filterCity, cities);
     }
+    filterCards();
   }
 
   function filterCards() {
@@ -225,6 +218,9 @@ document.addEventListener("DOMContentLoaded", function () {
     const country = filterCountry.value;
     const city = filterCity.value;
     const type = filterType.value;
+
+    // Seleccionar tarjetas dinámicamente después de generarlas
+    cards = document.querySelectorAll('[data-continent]');
 
     cards.forEach(card => {
       const cardContinent = card.getAttribute('data-continent');
@@ -245,17 +241,67 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
+  // Generar tarjetas dinámicamente
+  const categories = ["playa", "hotel", "restaurante", "cafetería", "museo"];
+  
+  function generateCards() {
+    const container = document.querySelector("#destinations .row.g-4");
+    container.innerHTML = ""; // Limpiar tarjetas existentes
+    let imageTotal=4;
+    let imageNumber = 1;  // Comenzamos con la imagen1 para la primera ciudad
+  
+    Object.entries(data).forEach(([continent, countries]) => {
+      Object.entries(countries).forEach(([country, cities]) => {
+        cities.forEach(city => {
+          // Para cada ciudad, generar tarjetas para todas las categorías con la misma imagen
+          categories.forEach((category) => {
+            const cardHTML = `
+              <div class="col-md-4" 
+                  data-continent="${continent}" 
+                  data-country="${country}" 
+                  data-city="${city}" 
+                  data-type="${category}">
+                <div class="card">
+                  <div class="card-img-top" style="height: 250px; overflow: hidden;">
+                    <img src="img/${category}${imageNumber}.jpg" 
+                        class="w-100 h-100 object-fit-cover" 
+                        alt="${city} - ${category} ${imageNumber}">
+                  </div>
+                  <div class="card-body">
+                    <h5 class="card-title">${capitalize(category)} en ${city}</h5>
+                    <p class="card-text">Explora ${category} en ${city}, ${country} con tu mascota.</p>
+                  </div>
+                </div>
+              </div>
+            `;
+            container.innerHTML += cardHTML; // Agregar tarjeta al contenedor
+            // Después de generar las tarjetas de una ciudad, incrementamos la imagen
+            imageNumber++;
+      
+            // Si hemos usado la imagen 4, volvemos a la imagen 1
+            if (imageNumber > imageTotal) {
+              imageNumber = 1;
+            }
+            });
+          });
+        });
+      });
+  
+
+
+    filterCards(); // Filtrar después de generar las tarjetas
+  }
+
+  function capitalize(text) {
+    return text.charAt(0).toUpperCase() + text.slice(1);
+  }
+
+  // Ejecutar generación de tarjetas al cargar el DOM
+  generateCards();
+
   // Escuchar cambios en los selectores
-  filterContinent.addEventListener('change', () => {
-    updateCountries();
-    filterCards();
-  });
-
-  filterCountry.addEventListener('change', () => {
-    updateCities();
-    filterCards();
-  });
-
+  filterContinent.addEventListener('change', updateCountries);
+  filterCountry.addEventListener('change', updateCities);
   filterCity.addEventListener('change', filterCards);
   filterType.addEventListener('change', filterCards);
 });
