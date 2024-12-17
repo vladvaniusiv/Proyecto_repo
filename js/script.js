@@ -312,18 +312,25 @@ document.addEventListener("DOMContentLoaded", function () {
 document.addEventListener("DOMContentLoaded", () => {
   const destinations = [
     {
-      city: "Melbourne",
-      playa: { title: "Playa St Kilda", description: "La famosa playa de St Kilda...", img: "img/playa1.jpg" },
-      hotel: { title: "Hotel Pet Haven", description: "Un alojamiento que mima...", img: "img/playa1.jpg" },
-      cafeteria: { title: "Cafetería Bean & Bone", description: "Cafés deliciosos...", img: "img/playa1.jpg" },
-      museo: { title: "Jardines Botánicos Reales", description: "Un espacio cultural...", img: "img/playa1.jpg" },
-    },
-    {
       city: "València",
       playa: { title: "Playa Malvarrosa", description: "La playa más emblemática de València.", img: "img/playa2.jpg" },
       hotel: { title: "Hotel Relax", description: "Un hotel pet-friendly para una estancia tranquila.", img: "img/playa2.jpg" },
       cafeteria: { title: "Café Pet Friendly", description: "Café especializado en mascotas, junto a la playa.", img: "img/playa2.jpg" },
       museo: { title: "Museo de Arte Moderno", description: "Museo donde tu mascota también puede disfrutar del arte.", img: "img/playa2.jpg" },
+    },
+    {
+      city: "Barcelona",
+      playa: { title: "Playa de Llevant", description: "La Playa de Llevant en Barcelona cuenta con una zona especialmente habilitada para mascotas. Perfecta para disfrutar del mar Mediterráneo junto a tu compañero peludo.", img: "img/playa2.jpg" },
+      hotel: { title: "Hotel Pet Paradise", description: "Un hotel pet-friendly para una estancia tranquila.", img: "img/playa2.jpg" },
+      cafeteria: { title: "Cafetería Patitas Café", description: "Café especializado en mascotas, junto a la playa.", img: "img/playa2.jpg" },
+      museo: { title: "Museo de Arte Moderno", description: "Museo donde tu mascota también puede disfrutar del arte.", img: "img/playa2.jpg" },
+    },
+    {
+      city: "Madrid",
+      playa: { title: "Playa Canina de Pinedo", description: "La Playa Canina de Pinedo es perfecta para disfrutar con tu mascota.", img: "img/playa8.jpg" },
+      hotel: { title: "Hotel Pet-Friendly Madrid", description: "Un hotel dedicado a las mascotas con todos los servicios necesarios.", img: "img/playa8.jpg" },
+      cafeteria: { title: "Cafetería Pet Lovers", description: "Disfruta de una bebida mientras tu mascota se relaja en nuestra terraza.", img: "img/playa8.jpg" },
+      museo: { title: "Museo del Prado", description: "Un lugar perfecto para un paseo artístico con tu mascota.", img: "img/playa8.jpg" },
     },
     {
       city: "París",
@@ -361,13 +368,6 @@ document.addEventListener("DOMContentLoaded", () => {
       museo: { title: "Museo de Historia Natural", description: "Explora la historia natural mientras paseas con tu amigo peludo.", img: "img/playa7.jpg" },
     },
     {
-      city: "Madrid",
-      playa: { title: "Playa Canina de Pinedo", description: "La Playa Canina de Pinedo es perfecta para disfrutar con tu mascota.", img: "img/playa8.jpg" },
-      hotel: { title: "Hotel Pet-Friendly Madrid", description: "Un hotel dedicado a las mascotas con todos los servicios necesarios.", img: "img/playa8.jpg" },
-      cafeteria: { title: "Cafetería Pet Lovers", description: "Disfruta de una bebida mientras tu mascota se relaja en nuestra terraza.", img: "img/playa8.jpg" },
-      museo: { title: "Museo del Prado", description: "Un lugar perfecto para un paseo artístico con tu mascota.", img: "img/playa8.jpg" },
-    },
-    {
       city: "Nueva York",
       playa: { title: "Playa de Rockaway", description: "Una playa famosa en Nueva York donde las mascotas pueden disfrutar del mar.", img: "img/playa9.jpg" },
       hotel: { title: "Hotel Pet Friendly NY", description: "Un hotel para ti y tu mascota con cómodas instalaciones.", img: "img/playa9.jpg" },
@@ -380,7 +380,14 @@ document.addEventListener("DOMContentLoaded", () => {
       hotel: { title: "Hotel Pet-Friendly Cancún", description: "Disfruta de un hotel cómodo con tu mascota a orillas del mar.", img: "img/playa10.jpg" },
       cafeteria: { title: "Café Playa Pet", description: "Un café ideal para disfrutar con tu mascota mientras ves el mar.", img: "img/playa10.jpg" },
       museo: { title: "Museo Maya de Cancún", description: "Descubre la cultura maya mientras paseas con tu mascota.", img: "img/playa10.jpg" },
-    }
+    },
+    {
+      city: "Melbourne",
+      playa: { title: "Playa St Kilda", description: "La famosa playa de St Kilda...", img: "img/playa1.jpg" },
+      hotel: { title: "Hotel Pet Haven", description: "Un alojamiento que mima...", img: "img/playa1.jpg" },
+      cafeteria: { title: "Cafetería Bean & Bone", description: "Cafés deliciosos...", img: "img/playa1.jpg" },
+      museo: { title: "Jardines Botánicos Reales", description: "Un espacio cultural...", img: "img/playa1.jpg" },
+    },
   ];
 
   const container = document.querySelector(".dynamic-content"); // Contenedor donde añadir el HTML
@@ -393,23 +400,24 @@ document.addEventListener("DOMContentLoaded", () => {
         <h1 class="text-center mb-5">Descubre ${destino.city} con tu Mascota</h1>
 
         <!-- Playa -->
-        ${generateSectionHTML(destino.playa, ++sectionCounter)}
+        ${generateSectionHTML(destino.playa, destino.city, "playa", ++sectionCounter)}
         <!-- Hotel -->
-        ${generateSectionHTML(destino.hotel, ++sectionCounter)}
+        ${generateSectionHTML(destino.hotel, destino.city, "hotel", ++sectionCounter)}
         <!-- Cafetería -->
-        ${generateSectionHTML(destino.cafeteria, ++sectionCounter)}
+        ${generateSectionHTML(destino.cafeteria, destino.city, "cafetería", ++sectionCounter)}
         <!-- Museo -->
-        ${generateSectionHTML(destino.museo, ++sectionCounter)}
+        ${generateSectionHTML(destino.museo, destino.city, "museo", ++sectionCounter)}
       </section>
     `;
     container.innerHTML += cityHTML;
   });
 
   // Función para generar HTML de cada sección
-  function generateSectionHTML(sectionData, index) {
+  function generateSectionHTML(sectionData, city, category, index) {
     const isReverse = index % 2 === 0 ? "flex-row-reverse" : ""; // Aplica flex-row-reverse si es par
+    const sectionId = `${city}-${category}`;
     return `
-      <div class="row mb-4 align-items-center ${isReverse}">
+      <div class="row mb-4 align-items-center ${isReverse}" id="${sectionId}">
         <div class="col-md-6">
           <h2 class="text-center">${sectionData.title}</h2>
           <p>${sectionData.description}</p>
