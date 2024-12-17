@@ -83,7 +83,7 @@ body{
 }
 
 @media (min-width: 768px) and (max-width: 1024px) {
-  .row.g-4 .col-md-4 {
+  .row.g-4 .col-md-4, .row.g-3 .col-md-3 {
     flex: 0 0 50%;
     max-width: 50%;
   }
