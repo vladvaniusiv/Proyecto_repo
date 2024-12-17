@@ -154,7 +154,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // Datos jerárquicos: continentes, países y ciudades
   const data = {
     europa: {
-      España: ["Valencia", "Barcelona", "Madrid"],
+      España: ["València", "Barcelona", "Madrid"],
       Francia: ["París", "Marsella"],
       Italia: ["Roma", "Venecia", "Milán"],
       Alemania: ["Berlín", "Múnich"]
@@ -242,7 +242,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // Generar tarjetas dinámicamente
-  const categories = ["playa", "hotel", "restaurante", "cafetería", "museo"];
+  const categories = ["playa", "hotel", "cafetería", "museo"];
   
   function generateCards() {
     const container = document.querySelector("#destinations .row.g-4");
@@ -263,13 +263,13 @@ document.addEventListener("DOMContentLoaded", function () {
                   data-type="${category}">
                 <div class="card">
                   <div class="card-img-top" style="height: 250px; overflow: hidden;">
-                    <img src="img/${category}${imageNumber}.jpg" 
+                    <a href="destinations.html#${city}-${category}"><img src="img/${category}${imageNumber}.jpg" 
                         class="w-100 h-100 object-fit-cover" 
-                        alt="${city} - ${category} ${imageNumber}">
+                        alt="${city} - ${category} ${imageNumber}"></a>
                   </div>
                   <div class="card-body">
                     <h5 class="card-title">${capitalize(category)} en ${city}</h5>
-                    <p class="card-text">Explora ${category} en ${city}, ${country} con tu mascota.</p>
+                    <p class="card-text">Explora ${category} <b><i>pet-friendly</i></b> en ${city}, ${country} con tu mascota.</p>
                   </div>
                 </div>
               </div>
@@ -304,4 +304,120 @@ document.addEventListener("DOMContentLoaded", function () {
   filterCountry.addEventListener('change', updateCities);
   filterCity.addEventListener('change', filterCards);
   filterType.addEventListener('change', filterCards);
+});
+
+
+
+//DESTINATIONS
+document.addEventListener("DOMContentLoaded", () => {
+  const destinations = [
+    {
+      city: "Melbourne",
+      playa: { title: "Playa St Kilda", description: "La famosa playa de St Kilda...", img: "img/playa1.jpg" },
+      hotel: { title: "Hotel Pet Haven", description: "Un alojamiento que mima...", img: "img/playa1.jpg" },
+      cafeteria: { title: "Cafetería Bean & Bone", description: "Cafés deliciosos...", img: "img/playa1.jpg" },
+      museo: { title: "Jardines Botánicos Reales", description: "Un espacio cultural...", img: "img/playa1.jpg" },
+    },
+    {
+      city: "València",
+      playa: { title: "Playa Malvarrosa", description: "La playa más emblemática de València.", img: "img/playa2.jpg" },
+      hotel: { title: "Hotel Relax", description: "Un hotel pet-friendly para una estancia tranquila.", img: "img/playa2.jpg" },
+      cafeteria: { title: "Café Pet Friendly", description: "Café especializado en mascotas, junto a la playa.", img: "img/playa2.jpg" },
+      museo: { title: "Museo de Arte Moderno", description: "Museo donde tu mascota también puede disfrutar del arte.", img: "img/playa2.jpg" },
+    },
+    {
+      city: "París",
+      playa: { title: "Playa de la Costa Azul", description: "Disfruta del sol y la arena en la famosa costa francesa.", img: "img/playa3.jpg" },
+      hotel: { title: "Hotel Le Chien", description: "Un hotel lujoso donde las mascotas son bienvenidas.", img: "img/playa3.jpg" },
+      cafeteria: { title: "Café Pattes", description: "El café más acogedor para mascotas en París.", img: "img/playa3.jpg" },
+      museo: { title: "Museo del Louvre", description: "Descubre arte mundial mientras paseas con tu mascota.", img: "img/playa3.jpg" },
+    },
+    {
+      city: "Marsella",
+      playa: { title: "Playa de Prado", description: "Disfruta de un día soleado con tu mascota en la Playa de Prado.", img: "img/playa4.jpg" },
+      hotel: { title: "Hotel Marsella Pet", description: "Un hotel pet-friendly con amplias áreas para mascotas.", img: "img/playa4.jpg" },
+      cafeteria: { title: "Café Canino", description: "Un lugar único para disfrutar de un café junto a tu amigo peludo.", img: "img/playa4.jpg" },
+      museo: { title: "Museo al Aire Libre", description: "Descubre el arte mientras paseas con tu mascota.", img: "img/playa4.jpg" },
+    },
+    {
+      city: "Roma",
+      playa: { title: "Playa Ostia", description: "La mejor playa cerca de Roma, ideal para pasar el día con tu mascota.", img: "img/playa5.jpg" },
+      hotel: { title: "Hotel Roma Pet", description: "Un hotel de lujo para ti y tu mascota en el corazón de Roma.", img: "img/playa5.jpg" },
+      cafeteria: { title: "Café Roma Pets", description: "Cafés gourmet y pet-friendly para ti y tu mascota.", img: "img/playa5.jpg" },
+      museo: { title: "Museo del Vaticano", description: "Un paseo por la historia junto a tu compañero peludo.", img: "img/playa5.jpg" },
+    },
+    {
+      city: "Berlín",
+      playa: { title: "Playa de Wannsee", description: "Una playa tranquila y relajante para disfrutar con tu mascota.", img: "img/playa6.jpg" },
+      hotel: { title: "Hotel Berlin Pets", description: "El hotel ideal para una estancia confortable con tu mascota.", img: "img/playa6.jpg" },
+      cafeteria: { title: "Café Pet Friendly", description: "Café acogedor donde tu mascota es siempre bienvenida.", img: "img/playa6.jpg" },
+      museo: { title: "Museo Pergamon", description: "Descubre el arte de la antigua Roma mientras paseas con tu mascota.", img: "img/playa6.jpg" },
+    },
+    {
+      city: "Múnich",
+      playa: { title: "Playa de Starnberg", description: "Un hermoso lugar junto al lago para disfrutar del sol con tu mascota.", img: "img/playa7.jpg" },
+      hotel: { title: "Hotel Múnich Pet", description: "Un hotel pet-friendly con amplias instalaciones para mascotas.", img: "img/playa7.jpg" },
+      cafeteria: { title: "Café Perro Feliz", description: "Un café cálido y acogedor para disfrutar con tu mascota.", img: "img/playa7.jpg" },
+      museo: { title: "Museo de Historia Natural", description: "Explora la historia natural mientras paseas con tu amigo peludo.", img: "img/playa7.jpg" },
+    },
+    {
+      city: "Madrid",
+      playa: { title: "Playa Canina de Pinedo", description: "La Playa Canina de Pinedo es perfecta para disfrutar con tu mascota.", img: "img/playa8.jpg" },
+      hotel: { title: "Hotel Pet-Friendly Madrid", description: "Un hotel dedicado a las mascotas con todos los servicios necesarios.", img: "img/playa8.jpg" },
+      cafeteria: { title: "Cafetería Pet Lovers", description: "Disfruta de una bebida mientras tu mascota se relaja en nuestra terraza.", img: "img/playa8.jpg" },
+      museo: { title: "Museo del Prado", description: "Un lugar perfecto para un paseo artístico con tu mascota.", img: "img/playa8.jpg" },
+    },
+    {
+      city: "Nueva York",
+      playa: { title: "Playa de Rockaway", description: "Una playa famosa en Nueva York donde las mascotas pueden disfrutar del mar.", img: "img/playa9.jpg" },
+      hotel: { title: "Hotel Pet Friendly NY", description: "Un hotel para ti y tu mascota con cómodas instalaciones.", img: "img/playa9.jpg" },
+      cafeteria: { title: "Café Dog’s Paradise", description: "Un café donde tu mascota es bienvenida con snacks especiales.", img: "img/playa9.jpg" },
+      museo: { title: "Museo Metropolitano de Arte", description: "Un paseo por arte mundial mientras disfrutas de tu compañía peluda.", img: "img/playa9.jpg" },
+    },
+    {
+      city: "Cancún",
+      playa: { title: "Playa Delfines", description: "La Playa Delfines es perfecta para disfrutar del mar con tu mascota.", img: "img/playa10.jpg" },
+      hotel: { title: "Hotel Pet-Friendly Cancún", description: "Disfruta de un hotel cómodo con tu mascota a orillas del mar.", img: "img/playa10.jpg" },
+      cafeteria: { title: "Café Playa Pet", description: "Un café ideal para disfrutar con tu mascota mientras ves el mar.", img: "img/playa10.jpg" },
+      museo: { title: "Museo Maya de Cancún", description: "Descubre la cultura maya mientras paseas con tu mascota.", img: "img/playa10.jpg" },
+    }
+  ];
+
+  const container = document.querySelector(".dynamic-content"); // Contenedor donde añadir el HTML
+
+  destinations.forEach((destino) => {
+    let sectionCounter = 0; // Reinicia el contador para cada ciudad
+
+    const cityHTML = `
+      <section class="container mt-5">
+        <h1 class="text-center mb-5">Descubre ${destino.city} con tu Mascota</h1>
+
+        <!-- Playa -->
+        ${generateSectionHTML(destino.playa, ++sectionCounter)}
+        <!-- Hotel -->
+        ${generateSectionHTML(destino.hotel, ++sectionCounter)}
+        <!-- Cafetería -->
+        ${generateSectionHTML(destino.cafeteria, ++sectionCounter)}
+        <!-- Museo -->
+        ${generateSectionHTML(destino.museo, ++sectionCounter)}
+      </section>
+    `;
+    container.innerHTML += cityHTML;
+  });
+
+  // Función para generar HTML de cada sección
+  function generateSectionHTML(sectionData, index) {
+    const isReverse = index % 2 === 0 ? "flex-row-reverse" : ""; // Aplica flex-row-reverse si es par
+    return `
+      <div class="row mb-4 align-items-center ${isReverse}">
+        <div class="col-md-6">
+          <h2 class="text-center">${sectionData.title}</h2>
+          <p>${sectionData.description}</p>
+        </div>
+        <div class="col-md-6" style="height: 400px; overflow: hidden;">
+          <img src="${sectionData.img}" class="img-fluid rounded w-100 h-100 object-fit-cover" alt="${sectionData.title}">
+        </div>
+      </div>
+    `;
+  }
 });
