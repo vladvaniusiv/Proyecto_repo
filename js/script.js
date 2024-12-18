@@ -242,7 +242,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // Generar tarjetas dinámicamente
-  const categories = ["playa", "hotel", "cafetería", "museo"];
+  const categories = ["playa", "hotel", "cafetería"];
   
   function generateCards() {
     const container = document.querySelector("#destinations .row.g-4");
