@@ -142,7 +142,7 @@ body{
   }
 
   .navbar-brand:hover .logo-img {
-    content: url('../img/logoN.png');
+    content: url('../img/logoN.svg');
   }
 
   /*SUBRAYADO DE LINKS*/
@@ -273,4 +273,9 @@ body{
   text-decoration: none;
   color: #D29B23;
   color: #47AA9C;
+}
+
+.pawlist{
+  list-style-image: url("../img/viñeta.svg");
+  list-style-position: inside;
 }
